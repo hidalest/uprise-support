@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uprise — Support</title>
+  <meta name="description" content="Support page for Uprise — the habit recovery app for iOS." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0A0D1F;
+      --card:   #111427;
+      --border: #1e2340;
+      --teal:   #4DE0E0;
+      --white:  #FFFFFF;
+      --muted:  rgba(255,255,255,0.45);
+      --radius: 16px;
+    }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a { color: var(--teal); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding: 80px 24px 56px;
+    }
+
+    .hero .app-icon {
+      width: 96px;
+      height: 96px;
+      border-radius: 22px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--teal);
+      margin-bottom: 8px;
+    }
+
+    .hero .tagline {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .hero .badge {
+      display: inline-block;
+      background: rgba(77, 224, 224, 0.12);
+      border: 1px solid rgba(77, 224, 224, 0.3);
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 999px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── Section ── */
+    section {
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    section h2 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 24px;
+    }
+
+    /* ── FAQ ── */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    details {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    details + details { margin-top: 8px; }
+
+    summary {
+      padding: 18px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      user-select: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: "+";
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--teal);
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    details[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-body {
+      padding: 0 20px 18px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+    }
+
+    /* ── Contact ── */
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      text-align: center;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .contact-card .email-btn {
+      display: inline-block;
+      background: var(--teal);
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 999px;
+      letter-spacing: 0.2px;
+      transition: opacity 0.15s;
+    }
+
+    .contact-card .email-btn:hover {
+      opacity: 0.85;
+      text-decoration: none;
+    }
+
+    /* ── Privacy ── */
+    .privacy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 480px) {
+      .privacy-grid { grid-template-columns: 1fr; }
+    }
+
+    .privacy-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    .privacy-item .icon {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .privacy-item h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .privacy-item p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--teal); }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="app-icon">⚡</div>
+    <h1>Uprise</h1>
+    <p class="tagline">Break Free. Stay Free.</p>
+    <span class="badge">Support &amp; Help</span>
+  </div>
+
+  <div class="container">
+
+    <!-- FAQ -->
+    <section>
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
+
+        <details>
+          <summary>How do I reset my streak?</summary>
+          <div class="faq-body">
+            Go to <strong>Settings → Danger Zone → Reset All Data</strong>. This will clear your streak and all journal entries. This action cannot be undone.
+          </div>
+        </details>
+
+        <details>
+          <summary>My streak isn't counting correctly.</summary>
+          <div class="faq-body">
+            Make sure your device date and time are set to automatic: <strong>Settings → General → Date &amp; Time → Set Automatically</strong>. Manually set clocks can cause streak miscalculations.
+          </div>
+        </details>
+
+        <details>
+          <summary>I got a new phone. Can I recover my streak?</summary>
+          <div class="faq-body">
+            Yes! If you were signed into iCloud on your old device, your data syncs automatically when you sign into the same Apple ID on your new device. Make sure iCloud is enabled and give it a few minutes to sync.
+          </div>
+        </details>
+
+        <details>
+          <summary>Does Uprise require a subscription?</summary>
+          <div class="faq-body">
+            No. Uprise is a one-time purchase — pay once, own it forever. No subscriptions, no hidden fees.
+          </div>
+        </details>
+
+        <details>
+          <summary>Is my data private?</summary>
+          <div class="faq-body">
+            Completely. Your data lives on your device and syncs privately through your own iCloud account. We never see it, never store it on our servers, and never sell it to anyone.
+          </div>
+        </details>
+
+        <details>
+          <summary>How does the SOS tool work?</summary>
+          <div class="faq-body">
+            The SOS tool gives you two options when an urge hits: <strong>guided breathing</strong> to calm your nervous system, or <strong>reach out</strong> to contact someone in your support circle. You can set up your support contacts in Settings.
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- Privacy -->
+    <section>
+      <h2>Privacy</h2>
+      <div class="privacy-grid">
+        <div class="privacy-item">
+          <div class="icon">🔒</div>
+          <h3>On-Device Storage</h3>
+          <p>All your data is stored locally on your device first.</p>
+        </div>
+        <div class="privacy-item">
+          <div class="icon">☁️</div>
+          <h3>Private iCloud Sync</h3>
+          <p>Syncs through your personal iCloud — only you can access it.</p>
+        </div>
+        <div class="privacy-item">
+          <div class="icon">🚫</div>
+          <h3>No Ads</h3>
+          <p>No advertising networks. No tracking. Ever.</p>
+        </div>
+        <div class="privacy-item">
+          <div class="icon">✉️</div>
+          <h3>No Account Required</h3>
+          <p>No sign-up, no email, no profile. Just the app.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section>
+      <h2>Get in Touch</h2>
+      <div class="contact-card">
+        <p>Still have a question or found a bug? Send me an email and I'll get back to you as soon as I can.</p>
+        <a class="email-btn" href="mailto:hidalest@icloud.com">hidalest@icloud.com</a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Made with ❤️ by a solo developer &nbsp;·&nbsp; © 2026 Uprise</p>
+  </footer>
+
+</body>
+</html>
