@@ -46,13 +46,15 @@
       width: 96px;
       height: 96px;
       border-radius: 22px;
-      background: var(--card);
-      border: 1px solid var(--border);
       margin: 0 auto 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 48px;
+      overflow: hidden;
+    }
+
+    .hero .app-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .hero h1 {
@@ -233,7 +235,7 @@
 
   <!-- Hero -->
   <div class="hero">
-    <div class="app-icon">⚡</div>
+    <div class="app-icon"><img src="icon.png" alt="Uprise app icon" /></div>
     <h1>Uprise</h1>
     <p class="tagline">Break Free. Stay Free.</p>
     <span class="badge">Support &amp; Help</span>
