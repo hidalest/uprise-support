@@ -576,11 +576,65 @@
       to   { opacity: 1; transform: translateY(0)    scale(1); }
     }
 
+    /* ─────────────────── SCREENSHOTS ─────────────────── */
+    .screenshots-section {
+      padding: 80px 0 60px;
+    }
+    .screenshots-section .section-eyebrow,
+    .screenshots-section .section-heading {
+      text-align: center;
+      padding: 0 24px;
+    }
+    .screenshots-outer {
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .screenshots-outer::-webkit-scrollbar { display: none; }
+    .screenshots-track {
+      display: flex;
+      gap: 20px;
+      padding: 40px 40px 8px;
+      width: max-content;
+      margin: 0 auto;
+      scroll-snap-type: x mandatory;
+    }
+    .screenshot-item {
+      flex: 0 0 auto;
+      scroll-snap-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    .screenshot-frame {
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.08),
+        0 24px 56px rgba(0,0,0,0.65),
+        0 8px 20px rgba(0,0,0,0.4);
+      width: 180px;
+    }
+    .screenshot-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .screenshot-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
     /* ─────────────────── RESPONSIVE ─────────────────── */
     @media (max-width: 480px) {
       nav { padding: 18px 20px; }
       .waitlist-form { flex-direction: column; }
       .waitlist-btn { width: 100%; }
+      .screenshot-frame { width: 180px; }
     }
   </style>
 </head>
@@ -642,6 +696,40 @@
   <div class="scroll-hint">
     <span>SCROLL</span>
     <div class="scroll-hint-arrow"></div>
+  </div>
+</section>
+
+<!-- SCREENSHOTS -->
+<section class="screenshots-section">
+  <p class="section-eyebrow reveal">The app</p>
+  <h2 class="section-heading reveal delay-1">Everything you need to stay free.</h2>
+  <div class="screenshots-outer">
+    <div class="screenshots-track">
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <img src="screenshots/home.png" alt="Uprise home screen showing streak and energy core" loading="lazy" />
+        </div>
+        <span class="screenshot-label">Streak</span>
+      </div>
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <img src="screenshots/insights.png" alt="Uprise insights screen showing urge trend chart" loading="lazy" />
+        </div>
+        <span class="screenshot-label">Insights</span>
+      </div>
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <img src="screenshots/badges.png" alt="Uprise badges screen showing earned milestones" loading="lazy" />
+        </div>
+        <span class="screenshot-label">Milestones</span>
+      </div>
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <img src="screenshots/profile.png" alt="Uprise profile screen showing recovery stats" loading="lazy" />
+        </div>
+        <span class="screenshot-label">Progress</span>
+      </div>
+    </div>
   </div>
 </section>
 
