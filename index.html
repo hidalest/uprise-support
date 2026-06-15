@@ -3,119 +3,421 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Uprise — Support</title>
-  <meta name="description" content="Support page for Uprise — the habit recovery app for iOS." />
+  <title>Uprise — Rewire Your Brain.</title>
+  <meta name="description" content="Break free from addiction. One day at a time. The iOS app built around the neuroscience of recovery." />
+  <meta property="og:title" content="Uprise — Rewire Your Brain." />
+  <meta property="og:description" content="Break free. One day at a time. Streak tracking, SOS tool, and pattern insights for iOS." />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
+
   <style>
+    .ms-icon {
+      font-family: 'Material Symbols Rounded';
+      font-size: inherit;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      -webkit-font-smoothing: antialiased;
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      user-select: none;
+    }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:   #0A0D1F;
-      --card:   #111427;
-      --border: #1e2340;
-      --teal:   #4DE0E0;
-      --white:  #FFFFFF;
-      --muted:  rgba(255,255,255,0.45);
-      --radius: 16px;
+      --navy:   #0A0A0F;
+      --card:   rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.07);
+      --coral:  #FF7366;
+      --muted:  rgba(255,255,255,0.42);
+      --radius: 18px;
     }
+
+    html { scroll-behavior: smooth; }
 
     body {
       background: var(--navy);
-      color: var(--white);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
       line-height: 1.6;
-      min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    a { color: var(--teal); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    /* ─────────────────── NAV ─────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 32px;
+      transition: background 0.3s, backdrop-filter 0.3s;
+    }
+    nav.scrolled {
+      background: rgba(10,10,15,0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 8px;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+    }
+    .nav-cta {
+      background: var(--coral);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+    .nav-cta:hover { opacity: 0.85; transform: scale(1.02); }
 
-    /* ── Layout ── */
+    /* ─────────────────── HERO ─────────────────── */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100svh;
+      min-height: 620px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #orb-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* gradient overlays — same as the app onboarding */
+    .hero-fade-top {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 200px;
+      background: linear-gradient(to bottom, var(--navy), transparent);
+      z-index: 2;
+      pointer-events: none;
+    }
+    .hero-fade-bottom {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 300px;
+      background: linear-gradient(to top, var(--navy), transparent);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      padding: 0 24px;
+    }
+
+    .wordmark {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 10px;
+      color: rgba(255,255,255,0.55);
+      padding-top: 80px;
+      opacity: 0;
+      animation: aFadeIn 1.2s ease 0.3s forwards;
+    }
+
+    .hero-headline {
+      margin-top: auto;
+      margin-bottom: 14px;
+      font-size: clamp(42px, 9vw, 72px);
+      font-weight: 800;
+      line-height: 1.06;
+      letter-spacing: -1.5px;
+      color: #fff;
+      text-shadow: 0 2px 32px rgba(0,0,0,0.85), 0 0 80px rgba(0,0,0,0.6);
+      opacity: 0;
+      animation: aRiseIn 1.3s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards;
+    }
+
+    .hero-tagline {
+      font-size: clamp(15px, 2vw, 17px);
+      color: var(--muted);
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: aFadeIn 1s ease 0.85s forwards;
+    }
+
+    /* ── waitlist form ── */
+    .waitlist-wrap {
+      width: 100%;
+      max-width: 440px;
+      margin-bottom: 14px;
+      opacity: 0;
+      animation: aFadeIn 1s ease 1.05s forwards;
+    }
+
+    .waitlist-form {
+      display: flex;
+      gap: 8px;
+    }
+
+    .waitlist-input {
+      flex: 1;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 15px 18px;
+      color: #fff;
+      font-size: 15px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+      min-width: 0;
+    }
+    .waitlist-input::placeholder { color: rgba(255,255,255,0.25); }
+    .waitlist-input:focus { border-color: rgba(255,115,102,0.55); }
+
+    .waitlist-btn {
+      background: var(--coral);
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      padding: 15px 22px;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity 0.15s, transform 0.1s;
+      flex-shrink: 0;
+    }
+    .waitlist-btn:hover { opacity: 0.88; transform: scale(1.02); }
+    .waitlist-btn:active { transform: scale(0.97); }
+    .waitlist-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    .waitlist-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.2);
+      margin-bottom: 8px;
+      text-align: center;
+      opacity: 0;
+      animation: aFadeIn 1s ease 1.15s forwards;
+    }
+
+    /* success */
+    .waitlist-success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .waitlist-success.show {
+      display: flex;
+      animation: aRiseIn 0.6s ease forwards;
+    }
+    .success-pill {
+      background: rgba(255,115,102,0.12);
+      border: 1px solid rgba(255,115,102,0.3);
+      color: var(--coral);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 28px;
+      border-radius: 999px;
+    }
+    .success-sub {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* app store badge */
+    .store-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 52px;
+      opacity: 0;
+      animation: aFadeIn 1s ease 1.25s forwards;
+    }
+
+    .app-store-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 13px;
+      padding: 11px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.72);
+      text-decoration: none;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .app-store-badge:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    /* scroll hint arrow */
+    .scroll-hint {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      opacity: 0;
+      animation: aFadeIn 1s ease 2s forwards;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .scroll-hint span {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.2);
+    }
+    .scroll-hint-arrow {
+      width: 1px;
+      height: 32px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.25), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50%       { opacity: 0.8; transform: scaleY(1.2); }
+    }
+
+    /* ─────────────────── CONTENT ─────────────────── */
     .container {
-      max-width: 680px;
+      max-width: 740px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
-    /* ── Hero ── */
-    .hero {
-      text-align: center;
-      padding: 80px 24px 56px;
+    .section {
+      padding: 88px 0;
     }
 
-    .hero .app-icon {
-      width: 96px;
-      height: 96px;
-      border-radius: 22px;
-      margin: 0 auto 24px;
-      overflow: hidden;
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 14px;
     }
 
-    .hero .app-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .hero h1 {
-      font-size: 42px;
+    .section-heading {
+      font-size: clamp(28px, 4.5vw, 40px);
       font-weight: 800;
       letter-spacing: -0.5px;
-      color: var(--teal);
-      margin-bottom: 8px;
+      line-height: 1.12;
+      margin-bottom: 16px;
     }
 
-    .hero .tagline {
+    .section-body {
       font-size: 16px;
       color: var(--muted);
-      margin-bottom: 32px;
+      max-width: 520px;
+      line-height: 1.75;
+      margin-bottom: 44px;
     }
 
-    .hero .badge {
-      display: inline-block;
-      background: rgba(77, 224, 224, 0.12);
-      border: 1px solid rgba(77, 224, 224, 0.3);
-      color: var(--teal);
-      font-size: 13px;
-      font-weight: 600;
-      padding: 6px 16px;
-      border-radius: 999px;
-      letter-spacing: 0.3px;
+    .divider {
+      height: 1px;
+      background: var(--border);
     }
 
-    /* ── Section ── */
-    section {
-      padding: 48px 0;
-      border-top: 1px solid var(--border);
+    /* ── 3-col feature grid ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 640px) {
+      .features-grid { grid-template-columns: 1fr; }
     }
 
-    section h2 {
-      font-size: 13px;
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: border-color 0.2s;
+    }
+    .feature-card:hover { border-color: rgba(255,255,255,0.12); }
+
+    .feat-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(255,115,102,0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 18px;
+      color: var(--coral);
+    }
+    .feat-title {
+      font-size: 16px;
       font-weight: 700;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 24px;
+      margin-bottom: 8px;
     }
+    .feat-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── privacy ── */
+    .privacy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 500px) { .privacy-grid { grid-template-columns: 1fr; } }
+
+    .priv-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+    .priv-icon { font-size: 22px; margin-bottom: 12px; display: block; color: var(--muted); }
+    .priv-title { font-size: 14px; font-weight: 700; margin-bottom: 5px; }
+    .priv-desc { font-size: 13px; color: var(--muted); line-height: 1.55; }
 
     /* ── FAQ ── */
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
+    .faq-list { display: flex; flex-direction: column; gap: 8px; }
 
     details {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow: hidden;
+      transition: border-color 0.2s;
     }
-
-    details + details { margin-top: 8px; }
+    details[open] { border-color: rgba(255,115,102,0.22); }
 
     summary {
-      padding: 18px 20px;
+      padding: 18px 22px;
       font-size: 15px;
       font-weight: 600;
       cursor: pointer;
@@ -126,99 +428,120 @@
       gap: 12px;
       user-select: none;
     }
-
     summary::-webkit-details-marker { display: none; }
-
     summary::after {
       content: "+";
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 300;
-      color: var(--teal);
+      color: var(--coral);
       flex-shrink: 0;
-      transition: transform 0.2s ease;
+      transition: transform 0.22s ease;
     }
-
-    details[open] summary::after {
-      transform: rotate(45deg);
-    }
+    details[open] summary::after { transform: rotate(45deg); }
 
     .faq-body {
-      padding: 0 20px 18px;
+      padding: 14px 22px 20px;
       font-size: 14px;
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.75;
       border-top: 1px solid var(--border);
-      padding-top: 14px;
     }
 
-    /* ── Contact ── */
+    /* ── contact ── */
     .contact-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 32px;
+      padding: 44px 32px;
       text-align: center;
     }
-
-    .contact-card p {
-      color: var(--muted);
-      font-size: 15px;
-      margin-bottom: 20px;
-    }
-
-    .contact-card .email-btn {
+    .contact-card p { color: var(--muted); font-size: 15px; margin-bottom: 24px; line-height: 1.7; }
+    .email-btn {
       display: inline-block;
-      background: var(--teal);
-      color: var(--navy);
+      background: var(--coral);
+      color: #fff;
       font-size: 14px;
       font-weight: 700;
-      padding: 12px 28px;
+      padding: 13px 30px;
       border-radius: 999px;
-      letter-spacing: 0.2px;
+      text-decoration: none;
       transition: opacity 0.15s;
     }
+    .email-btn:hover { opacity: 0.85; }
 
-    .contact-card .email-btn:hover {
-      opacity: 0.85;
-      text-decoration: none;
-    }
-
-    /* ── Privacy ── */
-    .privacy-grid {
+    /* ── science cards ── */
+    .science-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 12px;
     }
+    @media (max-width: 640px) { .science-grid { grid-template-columns: 1fr; } }
 
-    @media (max-width: 480px) {
-      .privacy-grid { grid-template-columns: 1fr; }
-    }
-
-    .privacy-item {
+    .science-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 20px;
+      padding: 24px 22px;
     }
-
-    .privacy-item .icon {
-      font-size: 24px;
-      margin-bottom: 10px;
+    .science-num {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--coral);
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+      display: block;
     }
-
-    .privacy-item h3 {
+    .science-label {
       font-size: 14px;
       font-weight: 700;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
-
-    .privacy-item p {
+    .science-body {
       font-size: 13px;
       color: var(--muted);
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
-    /* ── Footer ── */
+    /* ── phases ── */
+    .phases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    @media (max-width: 640px) { .phases-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 400px) { .phases-grid { grid-template-columns: 1fr; } }
+
+    .phase-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--ph-color, #FF7366);
+      border-radius: var(--radius);
+      padding: 18px 18px 20px;
+      transition: border-left-color 0.2s;
+    }
+    .phase-range {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--ph-color, #FF7366);
+      display: block;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+    .phase-name {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 7px;
+      color: #fff;
+    }
+    .phase-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ─────────────────── FOOTER ─────────────────── */
     footer {
       border-top: 1px solid var(--border);
       padding: 32px 24px;
@@ -226,115 +549,458 @@
       font-size: 13px;
       color: var(--muted);
     }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: #fff; }
 
-    footer a { color: var(--muted); }
-    footer a:hover { color: var(--teal); }
+    /* ─────────────────── SCROLL REVEAL ─────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal.delay-1 { transition-delay: 0.1s; }
+    .reveal.delay-2 { transition-delay: 0.2s; }
+    .reveal.delay-3 { transition-delay: 0.3s; }
+
+    /* ─────────────────── KEYFRAMES ─────────────────── */
+    @keyframes aFadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes aRiseIn {
+      from { opacity: 0; transform: translateY(22px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0)    scale(1); }
+    }
+
+    /* ─────────────────── RESPONSIVE ─────────────────── */
+    @media (max-width: 480px) {
+      nav { padding: 18px 20px; }
+      .waitlist-form { flex-direction: column; }
+      .waitlist-btn { width: 100%; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Hero -->
-  <div class="hero">
-    <div class="app-icon"><img src="icon.png" alt="Uprise app icon" /></div>
-    <h1>Uprise</h1>
-    <p class="tagline">Break Free. Stay Free.</p>
-    <span class="badge">Support &amp; Help</span>
+<!-- NAV -->
+<nav id="main-nav">
+  <a class="nav-logo" href="#">UPRISE</a>
+  <!-- TODO: Replace href with your actual App Store link -->
+  <a class="nav-cta" href="#waitlist-form">Join Waitlist</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <canvas id="orb-canvas"></canvas>
+  <div class="hero-fade-top"></div>
+  <div class="hero-fade-bottom"></div>
+
+  <div class="hero-content">
+    <p class="wordmark">UPRISE</p>
+
+    <h1 class="hero-headline">Rewire<br>Your Brain.</h1>
+    <p class="hero-tagline">Break free. One day at a time.</p>
+
+    <!-- Waitlist -->
+    <div class="waitlist-wrap">
+      <form class="waitlist-form" id="waitlist-form" novalidate>
+        <input
+          class="waitlist-input"
+          id="email-input"
+          type="email"
+          placeholder="your@email.com"
+          autocomplete="email"
+          required
+        />
+        <button class="waitlist-btn" type="submit">Join Waitlist</button>
+      </form>
+    </div>
+    <p class="waitlist-note" id="waitlist-note">No spam. Just early access.</p>
+
+    <div class="waitlist-success" id="waitlist-success">
+      <div class="success-pill">✓ You're on the list</div>
+      <p class="success-sub">We'll reach out when early access opens.</p>
+    </div>
+
+    <!-- App Store -->
+    <div class="store-row">
+      <!-- TODO: Replace href with your actual App Store link -->
+      <a class="app-store-badge" href="#waitlist-form">
+        <svg width="16" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.34.05-2.37-1.32-3.21-2.54C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83zM13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" fill="rgba(255,255,255,0.8)"/>
+        </svg>
+        Coming soon to the App Store
+      </a>
+    </div>
   </div>
 
-  <div class="container">
+  <!-- Scroll hint -->
+  <div class="scroll-hint">
+    <span>SCROLL</span>
+    <div class="scroll-hint-arrow"></div>
+  </div>
+</section>
 
-    <!-- FAQ -->
-    <section>
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq-list">
+<!-- MAIN CONTENT -->
+<main class="container">
 
-        <details>
-          <summary>How do I reset my streak?</summary>
-          <div class="faq-body">
-            Go to <strong>Settings → Danger Zone → Reset All Data</strong>. This will clear your streak and all journal entries. This action cannot be undone.
-          </div>
-        </details>
+  <!-- HOW IT WORKS -->
+  <div class="section" id="features">
+    <p class="section-eyebrow reveal">How it works</p>
+    <h2 class="section-heading reveal delay-1">Built for real recovery.</h2>
+    <p class="section-body reveal delay-2">Not another productivity app. Uprise is designed around the neuroscience of habit change — because breaking an addiction takes more than a counter.</p>
 
-        <details>
-          <summary>My streak isn't counting correctly.</summary>
-          <div class="faq-body">
-            Make sure your device date and time are set to automatic: <strong>Settings → General → Date &amp; Time → Set Automatically</strong>. Manually set clocks can cause streak miscalculations.
-          </div>
-        </details>
-
-        <details>
-          <summary>I got a new phone. Can I recover my streak?</summary>
-          <div class="faq-body">
-            Yes! If you were signed into iCloud on your old device, your data syncs automatically when you sign into the same Apple ID on your new device. Make sure iCloud is enabled and give it a few minutes to sync.
-          </div>
-        </details>
-
-        <details>
-          <summary>Does Uprise require a subscription?</summary>
-          <div class="faq-body">
-            No. Uprise is free — core features like streak tracking, the SOS tool, and daily check-ins are always free, forever. An optional subscription will unlock premium features in a future update, but the heart of the app will never be paywalled.
-          </div>
-        </details>
-
-        <details>
-          <summary>Is my data private?</summary>
-          <div class="faq-body">
-            Completely. Your data lives on your device and syncs privately through your own iCloud account. We never see it, never store it on our servers, and never sell it to anyone.
-          </div>
-        </details>
-
-        <details>
-          <summary>How does the SOS tool work?</summary>
-          <div class="faq-body">
-            The SOS tool gives you two options when an urge hits: <strong>guided breathing</strong> to calm your nervous system, or <strong>reach out</strong> to contact someone in your support circle. You can set up your support contacts in Settings.
-          </div>
-        </details>
-
+    <div class="features-grid">
+      <div class="feature-card reveal delay-1">
+        <div class="feat-icon"><span class="ms-icon">electric_bolt</span></div>
+        <h3 class="feat-title">9-Phase Streak System</h3>
+        <p class="feat-desc">Visual progress through Ignition, Foundation, Momentum and beyond. Every hour matters in the first 72.</p>
       </div>
-    </section>
-
-    <!-- Privacy -->
-    <section>
-      <h2>Privacy</h2>
-      <div class="privacy-grid">
-        <div class="privacy-item">
-          <div class="icon">🔒</div>
-          <h3>On-Device Storage</h3>
-          <p>All your data is stored locally on your device first.</p>
-        </div>
-        <div class="privacy-item">
-          <div class="icon">☁️</div>
-          <h3>Private iCloud Sync</h3>
-          <p>Syncs through your personal iCloud — only you can access it.</p>
-        </div>
-        <div class="privacy-item">
-          <div class="icon">🚫</div>
-          <h3>No Ads</h3>
-          <p>No advertising networks. No tracking. Ever.</p>
-        </div>
-        <div class="privacy-item">
-          <div class="icon">✉️</div>
-          <h3>No Account Required</h3>
-          <p>No sign-up, no email, no profile. Just the app.</p>
-        </div>
+      <div class="feature-card reveal delay-2">
+        <div class="feat-icon"><span class="ms-icon">emergency</span></div>
+        <h3 class="feat-title">SOS When It Hits</h3>
+        <p class="feat-desc">Guided breathing and one-tap emergency contact — right when you need it, before the urge wins.</p>
       </div>
-    </section>
-
-    <!-- Contact -->
-    <section>
-      <h2>Get in Touch</h2>
-      <div class="contact-card">
-        <p>Still have a question or found a bug? Send me an email and I'll get back to you as soon as I can.</p>
-        <a class="email-btn" href="mailto:hidalest@icloud.com">hidalest@icloud.com</a>
+      <div class="feature-card reveal delay-3">
+        <div class="feat-icon"><span class="ms-icon">insights</span></div>
+        <h3 class="feat-title">Pattern Insights</h3>
+        <p class="feat-desc">Learn your peak risk times and triggers. Daily check-ins surface patterns so you can plan around them.</p>
       </div>
-    </section>
-
+    </div>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>Made with ❤️ by a solo developer &nbsp;·&nbsp; © 2026 Uprise</p>
-  </footer>
+  <div class="divider"></div>
+
+  <!-- THE SCIENCE -->
+  <div class="section" id="why">
+    <p class="section-eyebrow reveal">Why it works</p>
+    <h2 class="section-heading reveal delay-1">Your brain can change.<br>That's not a slogan.</h2>
+    <p class="section-body reveal delay-2">Pornography hijacks the same dopamine circuits as substance addiction. Recovery is measurable — but it takes weeks and months, not willpower alone. Uprise gives you the structure to let neuroplasticity do its job.</p>
+
+    <div class="science-grid">
+      <div class="science-card reveal delay-1">
+        <span class="science-num">72h</span>
+        <h4 class="science-label">The Hardest Window</h4>
+        <p class="science-body">The first three days see peak withdrawal intensity. Dopamine receptors are overstimulated and craving is loudest. This is why Uprise tracks hours — not just days — in the Ignition phase.</p>
+      </div>
+      <div class="science-card reveal delay-2">
+        <span class="science-num">90d</span>
+        <h4 class="science-label">The Clinical Milestone</h4>
+        <p class="science-body">90 days is the research-backed threshold where new neural pathways become dominant over old ones. Uprise builds your streak arc around this goal — every phase is a step toward it.</p>
+      </div>
+      <div class="science-card reveal delay-3">
+        <span class="science-num">70%</span>
+        <h4 class="science-label">The Surge Protector</h4>
+        <p class="science-body">After 14 days, a relapse doesn't erase your progress. Your first slip preserves 70% of elapsed days, the second 40%. Because two weeks of rewiring is real — and worth keeping.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- THE 9 PHASES -->
+  <div class="section" id="phases">
+    <p class="section-eyebrow reveal">The Phases</p>
+    <h2 class="section-heading reveal delay-1">9 phases. One rewired brain.</h2>
+    <p class="section-body reveal delay-2">Recovery follows a neurological arc. Each phase name marks a real shift in how your brain processes dopamine and reward. The orb color in the app changes as you progress.</p>
+
+    <div class="phases-grid">
+      <div class="phase-card reveal delay-1" style="--ph-color: #FF7373">
+        <span class="phase-range">Day 0 – 3</span>
+        <h4 class="phase-name">Ignition</h4>
+        <p class="phase-desc">Cravings are loudest right now. Anxiety, restlessness, poor sleep — this is your brain demanding what it's used to. Every hour held is real progress.</p>
+      </div>
+      <div class="phase-card reveal delay-2" style="--ph-color: #FFA640">
+        <span class="phase-range">Day 3 – 7</span>
+        <h4 class="phase-name">Foundation</h4>
+        <p class="phase-desc">Gaps start appearing between urges. Sleep improves. The white-knuckle intensity of day one is easing — a little.</p>
+      </div>
+      <div class="phase-card reveal delay-3" style="--ph-color: #4DE0E0">
+        <span class="phase-range">Day 7 – 14</span>
+        <h4 class="phase-name">Momentum</h4>
+        <p class="phase-desc">One week in. Mood can swing — irritability and low energy are normal. Your brain is actively rerouting its reward circuits.</p>
+      </div>
+      <div class="phase-card reveal delay-1" style="--ph-color: #73BFFF">
+        <span class="phase-range">Day 14 – 30</span>
+        <h4 class="phase-name">Adaptation</h4>
+        <p class="phase-desc">Many hit a "flatline" — emotional numbness, low motivation, low libido. It feels wrong. It isn't. It's your dopamine system recalibrating.</p>
+      </div>
+      <div class="phase-card reveal delay-2" style="--ph-color: #A699FF">
+        <span class="phase-range">Day 30 – 60</span>
+        <h4 class="phase-name">Clarity</h4>
+        <p class="phase-desc">Brain fog lifts noticeably. Focus, confidence, and emotional steadiness return. Many describe the world feeling more vivid at this stage.</p>
+      </div>
+      <div class="phase-card reveal delay-3" style="--ph-color: #C785FF">
+        <span class="phase-range">Day 60 – 90</span>
+        <h4 class="phase-name">Rewiring</h4>
+        <p class="phase-desc">Triggers still exist — but they've lost their authority. Emotional depth returns. Many feel more present in conversations and relationships.</p>
+      </div>
+      <div class="phase-card reveal delay-1" style="--ph-color: #FFE633">
+        <span class="phase-range">Day 90 – 180</span>
+        <h4 class="phase-name">Liberation</h4>
+        <p class="phase-desc">The 90-day reboot threshold. Self-esteem, productivity, and real-world relationships have visibly shifted. You'll feel the difference.</p>
+      </div>
+      <div class="phase-card reveal delay-2" style="--ph-color: #C0C8D8">
+        <span class="phase-range">Day 180 – 365</span>
+        <h4 class="phase-name">Restoration</h4>
+        <p class="phase-desc">Ordinary pleasures return — food, music, and human connection feel vivid again. Dopamine sensitivity is healing at a deep level.</p>
+      </div>
+      <div class="phase-card reveal delay-3" style="--ph-color: #F0F0FF">
+        <span class="phase-range">Day 365+</span>
+        <h4 class="phase-name">Integration</h4>
+        <p class="phase-desc">One year. The compulsive loop is broken. A new identity — built day by day — has taken its place.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- PRIVACY -->
+  <div class="section" id="privacy">
+    <p class="section-eyebrow reveal">Privacy</p>
+    <h2 class="section-heading reveal delay-1">Your data stays yours.</h2>
+    <p class="section-body reveal delay-2">This is the kind of app where privacy isn't optional. Everything lives on your device and syncs privately through your own iCloud account — we never see it.</p>
+
+    <div class="privacy-grid">
+      <div class="priv-card reveal delay-1">
+        <span class="priv-icon ms-icon">lock</span>
+        <h3 class="priv-title">On-Device Storage</h3>
+        <p class="priv-desc">All data lives locally on your device. No external servers ever touch your journal.</p>
+      </div>
+      <div class="priv-card reveal delay-2">
+        <span class="priv-icon ms-icon">cloud_sync</span>
+        <h3 class="priv-title">Private iCloud Sync</h3>
+        <p class="priv-desc">Syncs through your personal iCloud. Only you can access it — not even we can.</p>
+      </div>
+      <div class="priv-card reveal delay-1">
+        <span class="priv-icon ms-icon">block</span>
+        <h3 class="priv-title">Zero Ads</h3>
+        <p class="priv-desc">No advertising networks. No tracking pixels. No exceptions.</p>
+      </div>
+      <div class="priv-card reveal delay-2">
+        <span class="priv-icon ms-icon">no_accounts</span>
+        <h3 class="priv-title">No Account Required</h3>
+        <p class="priv-desc">No sign-up, no email address, no profile required to use the app.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- FAQ -->
+  <div class="section" id="support">
+    <p class="section-eyebrow reveal">Support</p>
+    <h2 class="section-heading reveal delay-1">Common questions.</h2>
+
+    <div class="faq-list reveal delay-2">
+      <details>
+        <summary>How do I reset my streak?</summary>
+        <div class="faq-body">Go to <strong>Settings → Danger Zone → Reset All Data</strong>. This clears your streak and all journal entries and cannot be undone.</div>
+      </details>
+      <details>
+        <summary>My streak isn't counting correctly.</summary>
+        <div class="faq-body">Make sure your device time is set automatically: <strong>Settings → General → Date &amp; Time → Set Automatically</strong>. A manually set clock can cause miscalculations.</div>
+      </details>
+      <details>
+        <summary>I got a new phone — can I recover my data?</summary>
+        <div class="faq-body">Yes. If iCloud was enabled on your old device, your streak and journal sync automatically when you sign into the same Apple ID on your new phone. Give it a few minutes.</div>
+      </details>
+      <details>
+        <summary>Does Uprise require a subscription?</summary>
+        <div class="faq-body">No. Core features — streak tracking, the SOS tool, and daily check-ins — are free forever. An optional premium tier is coming, but the heart of the app will never be paywalled.</div>
+      </details>
+      <details>
+        <summary>Is my data private?</summary>
+        <div class="faq-body">Completely. Your data lives on your device and syncs privately through your own iCloud. We never see it, store it on our servers, or sell it to anyone.</div>
+      </details>
+      <details>
+        <summary>How does the SOS tool work?</summary>
+        <div class="faq-body">The SOS tool offers guided breathing to calm your nervous system, and a one-tap option to contact someone in your support circle. Add your contacts in Settings.</div>
+      </details>
+      <details>
+        <summary>What is the Surge Protector?</summary>
+        <div class="faq-body">After two weeks of progress, a relapse preserves a portion of your streak (70% on the first, 40% on the second) instead of resetting to zero. It's science-backed — after 14 days, your brain has begun forming new pathways worth protecting.</div>
+      </details>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- CONTACT -->
+  <div class="section">
+    <p class="section-eyebrow reveal">Contact</p>
+    <h2 class="section-heading reveal delay-1">Get in touch.</h2>
+    <div class="contact-card reveal delay-2">
+      <p>Found a bug, have a question, or just want to share your story? I read every message.</p>
+      <a class="email-btn" href="mailto:hidalest@icloud.com">hidalest@icloud.com</a>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>Made with care by a solo developer &nbsp;·&nbsp; © 2026 Uprise &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="#support">Support</a></p>
+</footer>
+
+<!-- ═══════════════ WebGL Orb ═══════════════ -->
+<script>
+(function () {
+  const canvas = document.getElementById('orb-canvas');
+  const gl = canvas.getContext('webgl', { antialias: true, alpha: false });
+  if (!gl) return;
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width  = canvas.offsetWidth  * dpr;
+    canvas.height = canvas.offsetHeight * dpr;
+    gl.viewport(0, 0, canvas.width, canvas.height);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  const vs = `attribute vec2 p; void main(){ gl_Position=vec4(p,0.,1.); }`;
+
+  // Same fragment shader as welcome.html — identical look on website and onboarding
+  const fs = `
+    precision highp float;
+    uniform float t;
+    uniform vec2  res;
+    void main(){
+      vec2 uv = (gl_FragCoord.xy - 0.5*res) / min(res.x, res.y);
+      float r  = length(uv);
+      float breath = sin(t*0.55)*0.013 + cos(t*0.31)*0.006;
+      vec3 navy = vec3(0.040, 0.040, 0.060);
+      vec3 col  = navy;
+      float halo = smoothstep(0.60, 0.50, r + breath*1.2);
+      col = mix(col, vec3(0.10,0.11,0.19), halo*0.55);
+      float s1 = smoothstep(0.50+breath, 0.43+breath, r);
+      col = mix(col, vec3(0.18,0.19,0.28), s1);
+      float s2 = smoothstep(0.41+breath*0.8, 0.34+breath*0.8, r);
+      col = mix(col, vec3(0.34,0.35,0.46), s2);
+      float s3 = smoothstep(0.30+breath*0.6, 0.22+breath*0.6, r);
+      col = mix(col, vec3(0.20,0.21,0.31), s3);
+      float s4 = smoothstep(0.18+breath*0.4, 0.07+breath*0.4, r);
+      col = mix(col, vec3(0.86,0.87,0.98), s4);
+      float s5 = smoothstep(0.09+breath*0.2, 0.01, r);
+      col = mix(col, vec3(1.0,1.0,1.0), s5);
+      float spec = exp(-length(uv - vec2(-0.05,-0.06))*20.0)*s4*0.28;
+      col += vec3(1.0)*spec;
+      col += navy*exp(-r*2.0)*0.15;
+      gl_FragColor = vec4(col, 1.0);
+    }
+  `;
+
+  function mkShader(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+
+  const prog = gl.createProgram();
+  gl.attachShader(prog, mkShader(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, mkShader(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,1,1]), gl.STATIC_DRAW);
+  const aPos = gl.getAttribLocation(prog, 'p');
+  gl.enableVertexAttribArray(aPos);
+  gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+  const uTime = gl.getUniformLocation(prog, 't');
+  const uRes  = gl.getUniformLocation(prog, 'res');
+  const start = Date.now();
+
+  (function render() {
+    gl.uniform1f(uTime, (Date.now() - start) / 1000);
+    gl.uniform2f(uRes, canvas.width, canvas.height);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  })();
+})();
+</script>
+
+<!-- ═══════════════ Waitlist ═══════════════ -->
+<script>
+/*
+  WAITLIST SETUP (2 minutes):
+  1. Go to https://formspree.io and create a free account
+  2. Create a new form, copy the form ID (looks like "xpwzabcd")
+  3. Replace 'YOUR_FORM_ID' below with your ID
+  Until then, submissions open a pre-filled email to hidalest@icloud.com
+*/
+const FORMSPREE_ID = 'xrevjqdz';
+
+const form    = document.getElementById('waitlist-form');
+const success = document.getElementById('waitlist-success');
+const note    = document.getElementById('waitlist-note');
+const emailIn = document.getElementById('email-input');
+
+function showSuccess() {
+  form.style.display    = 'none';
+  note.style.display    = 'none';
+  success.classList.add('show');
+}
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = emailIn.value.trim();
+  if (!email) return;
+
+  const btn = form.querySelector('button');
+  btn.textContent = 'Joining…';
+  btn.disabled    = true;
+
+  if (FORMSPREE_ID === 'YOUR_FORM_ID') {
+    window.open(
+      `mailto:hidalest@icloud.com?subject=Uprise%20Waitlist&body=Add%20me%20to%20the%20early%20access%20list%3A%20${encodeURIComponent(email)}`,
+      '_blank'
+    );
+    showSuccess();
+    return;
+  }
+
+  try {
+    const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      method:  'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ email }),
+    });
+    if (res.ok) {
+      showSuccess();
+    } else {
+      throw new Error('bad response');
+    }
+  } catch {
+    btn.textContent = 'Join Waitlist';
+    btn.disabled    = false;
+    alert('Something went wrong. Email hidalest@icloud.com to join manually.');
+  }
+});
+</script>
+
+<!-- ═══════════════ Nav scroll + reveal ═══════════════ -->
+<script>
+// Frosted nav on scroll
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// Scroll-reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>

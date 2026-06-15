@@ -4,192 +4,258 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — Uprise</title>
-  <meta name="description" content="Privacy Policy for Uprise — the habit recovery app for iOS." />
+  <meta name="description" content="Uprise Privacy Policy. Your data stays on your device." />
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:   #0A0D1F;
-      --card:   #111427;
-      --border: #1e2340;
-      --teal:   #4DE0E0;
-      --white:  #FFFFFF;
+      --navy:   #0A0A0F;
+      --card:   rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.07);
+      --coral:  #FF7366;
       --muted:  rgba(255,255,255,0.45);
       --radius: 16px;
     }
 
+    html { scroll-behavior: smooth; }
+
     body {
       background: var(--navy);
-      color: var(--white);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      line-height: 1.7;
-      min-height: 100vh;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.75;
     }
 
-    a { color: var(--teal); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .container {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    header {
-      padding: 48px 24px 32px;
-      text-align: center;
+    /* ── Nav ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 32px;
       border-bottom: 1px solid var(--border);
     }
-
-    header .back {
-      display: inline-block;
-      margin-bottom: 24px;
-      font-size: 14px;
-      color: var(--teal);
-    }
-
-    header h1 {
-      font-size: 32px;
+    .nav-logo {
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: -0.5px;
+      letter-spacing: 8px;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+    }
+    .nav-back {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--coral);
+      text-decoration: none;
+      opacity: 0.9;
+    }
+    .nav-back:hover { opacity: 1; }
+
+    /* ── Layout ── */
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
     }
 
-    header p {
-      margin-top: 8px;
+    /* ── Header ── */
+    .page-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 14px;
+    }
+    .page-title {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .page-date {
+      font-size: 13px;
       color: var(--muted);
-      font-size: 14px;
+      margin-bottom: 56px;
     }
 
-    main {
-      padding: 48px 24px 80px;
-    }
-
-    section {
-      margin-bottom: 40px;
+    /* ── Sections ── */
+    .policy-section {
+      margin-bottom: 48px;
     }
 
     h2 {
       font-size: 18px;
-      font-weight: 600;
-      color: var(--teal);
+      font-weight: 700;
       margin-bottom: 12px;
+      color: #fff;
     }
 
     p {
-      color: rgba(255,255,255,0.8);
-      margin-bottom: 12px;
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 14px;
     }
+    p:last-child { margin-bottom: 0; }
 
     ul {
-      color: rgba(255,255,255,0.8);
-      padding-left: 20px;
-      margin-bottom: 12px;
+      list-style: none;
+      padding: 0;
+      margin-bottom: 14px;
     }
-
     ul li {
-      margin-bottom: 6px;
+      font-size: 15px;
+      color: var(--muted);
+      padding-left: 18px;
+      position: relative;
+      margin-bottom: 8px;
+    }
+    ul li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--coral);
+      opacity: 0.7;
     }
 
-    .card {
+    .highlight-card {
       background: var(--card);
       border: 1px solid var(--border);
+      border-left: 3px solid var(--coral);
       border-radius: var(--radius);
-      padding: 20px 24px;
-      margin-top: 16px;
+      padding: 20px 22px;
+      margin-bottom: 32px;
+    }
+    .highlight-card p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      margin: 0;
     }
 
-    footer {
-      text-align: center;
-      padding: 32px 24px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 13px;
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 48px 0;
     }
+
+    a { color: var(--coral); text-decoration: none; }
+    a:hover { opacity: 0.8; }
+
+    strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: #fff; }
   </style>
 </head>
 <body>
 
-  <header>
-    <a class="back" href="index.html">← Back to Support</a>
-    <h1>Privacy Policy</h1>
-    <p>Last updated: May 26, 2026</p>
-  </header>
+<nav>
+  <a class="nav-logo" href="index.html">UPRISE</a>
+  <a class="nav-back" href="index.html">← Back</a>
+</nav>
 
-  <main>
-    <div class="container">
+<div class="page">
 
-      <section>
-        <h2>Overview</h2>
-        <p>Uprise ("the app") is built by Esteban Hidalgo ("I", "me", "my"). This Privacy Policy explains what data the app collects, how it is used, and your rights as a user.</p>
-        <p>Your recovery journey is deeply personal. I treat your data with the care it deserves.</p>
-      </section>
+  <p class="page-eyebrow">Legal</p>
+  <h1 class="page-title">Privacy Policy</h1>
+  <p class="page-date">Last updated: June 15, 2026</p>
 
-      <section>
-        <h2>Data Collected</h2>
-        <p>Uprise collects only the data necessary to deliver its core functionality:</p>
-        <ul>
-          <li><strong>Name</strong> — provided via Sign in with Apple, used to personalize your experience</li>
-          <li><strong>User ID</strong> — an anonymized identifier from Sign in with Apple, used to sync your data across your devices via iCloud</li>
-          <li><strong>Recovery data</strong> — your streak, check-in logs, journal entries, and relapse notes, stored privately in your personal iCloud account via CloudKit</li>
-        </ul>
-      </section>
+  <div class="highlight-card">
+    <p>The short version: <strong>Uprise does not collect, store, or sell your personal information.</strong> Your journal, streak, and check-in data lives on your device and in your private iCloud account. We never see it.</p>
+  </div>
 
-      <section>
-        <h2>How Your Data Is Used</h2>
-        <ul>
-          <li>To track and display your recovery streak and progress</li>
-          <li>To sync your data privately across your Apple devices via iCloud</li>
-          <li>To surface insights and patterns from your check-in history</li>
-        </ul>
-        <p>Your data is never sold, shared with third parties, or used for advertising.</p>
-      </section>
+  <div class="policy-section">
+    <h2>What data Uprise collects</h2>
+    <p>Uprise stores all data — your streak, journal entries, check-ins, trigger logs, and settings — locally on your device using iOS UserDefaults and iCloud CloudKit. This data is:</p>
+    <ul>
+      <li>Stored on your device</li>
+      <li>Synced privately through your personal iCloud account (if iCloud is enabled)</li>
+      <li>Never transmitted to our servers</li>
+      <li>Never visible to us</li>
+    </ul>
+    <p>No account, email address, or personal identifier is required to use the app.</p>
+  </div>
 
-      <section>
-        <h2>iCloud &amp; CloudKit</h2>
-        <p>Your recovery data is stored in your personal iCloud account using Apple's CloudKit framework. I do not have access to a central server — your data lives in your iCloud, not mine. Apple's privacy policy applies to data stored in iCloud.</p>
-      </section>
+  <div class="divider"></div>
 
-      <section>
-        <h2>Sign in with Apple</h2>
-        <p>Uprise uses Sign in with Apple for authentication. Apple provides your name and an anonymized user identifier. You may choose to hide your email address using Apple's private relay — the app works either way.</p>
-      </section>
+  <div class="policy-section">
+    <h2>Optional anonymous analytics</h2>
+    <p>During onboarding, you can choose to share anonymous usage data to help improve the app. This is strictly opt-in — the app works identically whether you opt in or not.</p>
+    <p>If you opt in, the following events are sent to our analytics service (Supabase):</p>
+    <ul>
+      <li>App opened</li>
+      <li>Streak started</li>
+      <li>Phase advanced</li>
+      <li>Milestone reached</li>
+      <li>Check-in submitted (urge level only — no journal content)</li>
+      <li>Relapse logged (category only — no personal notes)</li>
+      <li>SOS tool opened</li>
+      <li>Badge earned</li>
+    </ul>
+    <p>Each event is tagged with a <strong>randomly generated anonymous ID</strong> — a UUID created on your device and never linked to your name, Apple ID, email, or any other identifier. We cannot identify you from this data.</p>
+    <p>You can withdraw consent at any time in <strong>Settings → Privacy</strong>.</p>
+  </div>
 
-      <section>
-        <h2>Data Stored Locally</h2>
-        <p>Some data is stored only on your device and is never transmitted:</p>
-        <ul>
-          <li>Your SOS emergency contact name and phone number</li>
-          <li>Notification preferences</li>
-          <li>App settings and avatar selection</li>
-        </ul>
-      </section>
+  <div class="divider"></div>
 
-      <section>
-        <h2>Children's Privacy</h2>
-        <p>Uprise is rated 16+ and is not intended for users under 16 years of age. I do not knowingly collect data from children under 16.</p>
-      </section>
+  <div class="policy-section">
+    <h2>iCloud sync</h2>
+    <p>If you have iCloud enabled on your device, Uprise uses Apple's CloudKit framework to sync your data across your devices. This sync occurs entirely within your personal iCloud account — Uprise has no access to it. Apple's privacy policy governs this data: <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a>.</p>
+  </div>
 
-      <section>
-        <h2>Your Rights</h2>
-        <p>You can delete all your data at any time from within the app: Settings → Delete Everything. This permanently removes all local data. Your iCloud data can be deleted from your iCloud account settings.</p>
-      </section>
+  <div class="divider"></div>
 
-      <section>
-        <h2>Changes to This Policy</h2>
-        <p>If this policy changes materially, I will update the "Last updated" date above. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
-      </section>
+  <div class="policy-section">
+    <h2>Third-party services</h2>
+    <p><strong>Supabase</strong> — used for anonymous analytics (opt-in only). No personal data is transmitted. <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase Privacy Policy</a>.</p>
+    <p><strong>Formspree</strong> — used to collect email addresses submitted via the waitlist form on this website. If you submit your email, it is stored by Formspree and used only to notify you when the app launches. <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">Formspree Privacy Policy</a>.</p>
+  </div>
 
-      <section>
-        <h2>Contact</h2>
-        <p>Questions about this privacy policy? Reach out at <a href="mailto:hidalest@icloud.com">hidalest@icloud.com</a></p>
-      </section>
+  <div class="divider"></div>
 
-    </div>
-  </main>
+  <div class="policy-section">
+    <h2>Data retention</h2>
+    <p>Your in-app data (streak, journal, check-ins) is retained until you delete it via <strong>Settings → Reset All Data</strong> or uninstall the app. Anonymous analytics events are retained for product improvement purposes and do not include any personal information.</p>
+    <p>Waitlist email addresses collected via the website are deleted once the app has launched and notifications have been sent.</p>
+  </div>
 
-  <footer>
-    <p>Uprise &mdash; Rewire Your Brain &nbsp;&middot;&nbsp; <a href="index.html">Support</a></p>
-  </footer>
+  <div class="divider"></div>
+
+  <div class="policy-section">
+    <h2>Children's privacy</h2>
+    <p>Uprise is not directed at children under 17. We do not knowingly collect any information from users under 17. If you believe a minor has submitted their data, please contact us and we will delete it promptly.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="policy-section">
+    <h2>Changes to this policy</h2>
+    <p>If this policy changes materially, we will update the date above and note what changed. Continued use of the app after changes constitutes acceptance of the revised policy.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="policy-section">
+    <h2>Contact</h2>
+    <p>Questions, concerns, or data requests:</p>
+    <p><a href="mailto:hidalest@icloud.com">hidalest@icloud.com</a></p>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Uprise &nbsp;·&nbsp; <a href="index.html">Home</a> &nbsp;·&nbsp; <a href="index.html#support">Support</a></p>
+</footer>
 
 </body>
 </html>
