@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Uprise — Rewire Your Brain.</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <meta name="description" content="Break free from addiction. One day at a time. The iOS app built around the neuroscience of recovery." />
   <meta property="og:title" content="Uprise — Rewire Your Brain." />
   <meta property="og:description" content="Break free. One day at a time. Streak tracking, SOS tool, and pattern insights for iOS." />
@@ -33,6 +35,10 @@
       --coral:  #FF7366;
       --muted:  rgba(255,255,255,0.42);
       --radius: 18px;
+
+      --ph-ignition:   #FF7373;
+      --ph-liberation: #FFE633;
+      --ph-adaptation: #73BFFF;
     }
 
     html { scroll-behavior: smooth; }
@@ -478,28 +484,51 @@
     @media (max-width: 640px) { .science-grid { grid-template-columns: 1fr; } }
 
     .science-card {
-      background: var(--card);
-      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: var(--radius);
-      padding: 24px 22px;
+      padding: 28px 24px;
+    }
+    .science-card::before {
+      content: '';
+      position: absolute;
+      width: 220px; height: 220px;
+      top: -80px; left: -60px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--sc-glow), transparent 65%);
+      filter: blur(50px);
+      opacity: 0.22;
+      pointer-events: none;
+      z-index: 0;
     }
     .science-num {
-      font-size: 28px;
+      position: relative; z-index: 1;
+      font-size: clamp(40px, 5.5vw, 52px);
       font-weight: 800;
-      color: var(--coral);
-      letter-spacing: -1px;
-      margin-bottom: 8px;
+      color: var(--sc-color, var(--coral));
+      letter-spacing: -2px;
+      margin-bottom: 10px;
       display: block;
+      line-height: 1;
     }
     .science-label {
-      font-size: 14px;
+      position: relative; z-index: 1;
+      font-size: 10px;
       font-weight: 700;
-      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: rgba(255,255,255,0.38);
+      margin-bottom: 10px;
     }
     .science-body {
+      position: relative; z-index: 1;
       font-size: 13px;
       color: var(--muted);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     /* ── phases ── */
@@ -770,17 +799,17 @@
     <p class="section-body reveal delay-2">Pornography hijacks the same dopamine circuits as substance addiction. Recovery is measurable — but it takes weeks and months, not willpower alone. Uprise gives you the structure to let neuroplasticity do its job.</p>
 
     <div class="science-grid">
-      <div class="science-card reveal delay-1">
+      <div class="science-card reveal delay-1" style="--sc-color: var(--ph-ignition); --sc-glow: var(--ph-ignition)">
         <span class="science-num">72h</span>
         <h4 class="science-label">The Hardest Window</h4>
         <p class="science-body">The first three days see peak withdrawal intensity. Dopamine receptors are overstimulated and craving is loudest. This is why Uprise tracks hours — not just days — in the Ignition phase.</p>
       </div>
-      <div class="science-card reveal delay-2">
+      <div class="science-card reveal delay-2" style="--sc-color: var(--ph-liberation); --sc-glow: var(--ph-liberation)">
         <span class="science-num">90d</span>
         <h4 class="science-label">The Clinical Milestone</h4>
         <p class="science-body">90 days is the research-backed threshold where new neural pathways become dominant over old ones. Uprise builds your streak arc around this goal — every phase is a step toward it.</p>
       </div>
-      <div class="science-card reveal delay-3">
+      <div class="science-card reveal delay-3" style="--sc-color: var(--ph-adaptation); --sc-glow: var(--ph-adaptation)">
         <span class="science-num">70%</span>
         <h4 class="science-label">The Surge Protector</h4>
         <p class="science-body">After 14 days, a relapse doesn't erase your progress. Your first slip preserves 70% of elapsed days, the second 40%. Because two weeks of rewiring is real — and worth keeping.</p>
@@ -924,7 +953,7 @@
     <h2 class="section-heading reveal delay-1">Get in touch.</h2>
     <div class="contact-card reveal delay-2">
       <p>Found a bug, have a question, or just want to share your story? I read every message.</p>
-      <a class="email-btn" href="mailto:hidalest@icloud.com">hidalest@icloud.com</a>
+      <a class="email-btn" href="mailto:hello@tryuprise.com">hello@tryuprise.com</a>
     </div>
   </div>
 
@@ -1023,7 +1052,7 @@
   1. Go to https://formspree.io and create a free account
   2. Create a new form, copy the form ID (looks like "xpwzabcd")
   3. Replace 'YOUR_FORM_ID' below with your ID
-  Until then, submissions open a pre-filled email to hidalest@icloud.com
+  Until then, submissions open a pre-filled email to hello@tryuprise.com
 */
 const FORMSPREE_ID = 'xrevjqdz';
 
@@ -1049,7 +1078,7 @@ form.addEventListener('submit', async (e) => {
 
   if (FORMSPREE_ID === 'YOUR_FORM_ID') {
     window.open(
-      `mailto:hidalest@icloud.com?subject=Uprise%20Waitlist&body=Add%20me%20to%20the%20early%20access%20list%3A%20${encodeURIComponent(email)}`,
+      `mailto:hello@tryuprise.com?subject=Uprise%20Waitlist&body=Add%20me%20to%20the%20early%20access%20list%3A%20${encodeURIComponent(email)}`,
       '_blank'
     );
     showSuccess();
@@ -1070,7 +1099,7 @@ form.addEventListener('submit', async (e) => {
   } catch {
     btn.textContent = 'Join Waitlist';
     btn.disabled    = false;
-    alert('Something went wrong. Email hidalest@icloud.com to join manually.');
+    alert('Something went wrong. Email hello@tryuprise.com to join manually.');
   }
 });
 </script>
