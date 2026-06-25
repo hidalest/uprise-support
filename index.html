@@ -605,6 +605,35 @@
       to   { opacity: 1; transform: translateY(0)    scale(1); }
     }
 
+    /* ─────────────────── PROBLEM SECTION ─────────────────── */
+    .problem-section {
+      padding: 100px 24px 80px;
+      display: flex;
+      justify-content: center;
+      background: rgba(255,255,255,0.015);
+      border-top: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .problem-inner {
+      max-width: 660px;
+      text-align: center;
+    }
+    .problem-headline {
+      font-size: clamp(30px, 5vw, 50px);
+      font-weight: 700;
+      line-height: 1.18;
+      letter-spacing: -0.025em;
+      color: #fff;
+      margin: 12px 0 36px;
+    }
+    .problem-body {
+      font-size: 17px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.68);
+      margin-bottom: 20px;
+    }
+    .problem-body:last-child { margin-bottom: 0; }
+
     /* ─────────────────── SCREENSHOTS ─────────────────── */
     .screenshots-section {
       padding: 80px 0 60px;
@@ -729,6 +758,16 @@
 
 </section>
 
+<!-- THE PROBLEM -->
+<section class="problem-section">
+  <div class="problem-inner">
+    <p class="section-eyebrow reveal">The real issue</p>
+    <h2 class="problem-headline reveal delay-1">You've tried to quit.<br>It didn't stick.<br>That's not weakness.</h2>
+    <p class="problem-body reveal delay-2">What you're dealing with isn't a character flaw. Porn hijacks the same dopamine circuits as hard drugs, building tolerance, intensifying cravings, and making every attempt to quit feel like a losing battle. You weren't failing. You were fighting something real.</p>
+    <p class="problem-body reveal delay-3">Your brain can heal from this. But it needs consistent time away to recalibrate. Weeks and months, not just days. Uprise is built around that timeline, from your hardest first hours to a full year on the other side.</p>
+  </div>
+</section>
+
 <!-- SCREENSHOTS -->
 <section class="screenshots-section">
   <p class="section-eyebrow reveal">The app</p>
@@ -768,25 +807,25 @@
 
   <!-- HOW IT WORKS -->
   <div class="section" id="features">
-    <p class="section-eyebrow reveal">How it works</p>
-    <h2 class="section-heading reveal delay-1">Built for real recovery.</h2>
-    <p class="section-body reveal delay-2">Not another productivity app. Uprise is designed around the neuroscience of habit change, because breaking an addiction takes more than a counter.</p>
+    <p class="section-eyebrow reveal">What Uprise is</p>
+    <h2 class="section-heading reveal delay-1">A recovery app built to help you quit porn for good.</h2>
+    <p class="section-body reveal delay-2">Not a habit tracker. Not a willpower timer. Uprise is built specifically for pornography addiction, with tools for your hardest moments and a structure based on how your brain actually heals.</p>
 
     <div class="features-grid">
       <div class="feature-card reveal delay-1">
         <div class="feat-icon"><span class="ms-icon">electric_bolt</span></div>
         <h3 class="feat-title">9-Phase Streak System</h3>
-        <p class="feat-desc">Visual progress through Ignition, Foundation, Momentum and beyond. Every hour matters in the first 72.</p>
+        <p class="feat-desc">Tracks your recovery from your first shaky hour to a full year clean. Each phase reflects a real shift in how your brain processes dopamine.</p>
       </div>
       <div class="feature-card reveal delay-2">
         <div class="feat-icon"><span class="ms-icon">emergency</span></div>
         <h3 class="feat-title">SOS When It Hits</h3>
-        <p class="feat-desc">Guided breathing and one-tap emergency contact, right when you need it, before the urge wins.</p>
+        <p class="feat-desc">Cravings don't wait. Guided breathing and a one-tap emergency contact, built for the exact moment you need it.</p>
       </div>
       <div class="feature-card reveal delay-3">
         <div class="feat-icon"><span class="ms-icon">insights</span></div>
         <h3 class="feat-title">Pattern Insights</h3>
-        <p class="feat-desc">Learn your peak risk times and triggers. Daily check-ins surface patterns so you can plan around them.</p>
+        <p class="feat-desc">Discover when and why urges hit hardest. Daily check-ins reveal your patterns so you can see the risk coming before it does.</p>
       </div>
     </div>
   </div>
