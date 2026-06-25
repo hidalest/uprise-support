@@ -32,7 +32,7 @@
       --navy:   #0A0A0F;
       --card:   rgba(255,255,255,0.04);
       --border: rgba(255,255,255,0.07);
-      --coral:  #FF7366;
+      --coral:  #A699FF;
       --muted:  rgba(255,255,255,0.42);
       --radius: 18px;
 
@@ -196,7 +196,7 @@
       min-width: 0;
     }
     .waitlist-input::placeholder { color: rgba(255,255,255,0.25); }
-    .waitlist-input:focus { border-color: rgba(255,115,102,0.55); }
+    .waitlist-input:focus { border-color: rgba(166,153,255,0.55); }
 
     .waitlist-btn {
       background: var(--coral);
@@ -238,8 +238,8 @@
       animation: aRiseIn 0.6s ease forwards;
     }
     .success-pill {
-      background: rgba(255,115,102,0.12);
-      border: 1px solid rgba(255,115,102,0.3);
+      background: rgba(166,153,255,0.12);
+      border: 1px solid rgba(166,153,255,0.3);
       color: var(--coral);
       font-size: 14px;
       font-weight: 600;
@@ -372,7 +372,7 @@
     .feat-icon {
       width: 44px;
       height: 44px;
-      background: rgba(255,115,102,0.1);
+      background: rgba(166,153,255,0.1);
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -420,7 +420,7 @@
       overflow: hidden;
       transition: border-color 0.2s;
     }
-    details[open] { border-color: rgba(255,115,102,0.22); }
+    details[open] { border-color: rgba(166,153,255,0.22); }
 
     summary {
       padding: 18px 22px;
@@ -718,14 +718,15 @@
         </svg>
         Coming soon to the App Store
       </a>
+      <a class="app-store-badge" href="#waitlist-form">
+        <svg width="16" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48C14.15 1.23 13.1 1 12 1c-1.1 0-2.15.23-3.09.63L7.43.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.3 1.3C6.45 3.28 5.5 5.01 5.5 7h13c0-1.99-.96-3.72-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z" fill="rgba(255,255,255,0.8)"/>
+        </svg>
+        Coming soon to Android
+      </a>
     </div>
   </div>
 
-  <!-- Scroll hint -->
-  <div class="scroll-hint">
-    <span>SCROLL</span>
-    <div class="scroll-hint-arrow"></div>
-  </div>
 </section>
 
 <!-- SCREENSHOTS -->
@@ -769,7 +770,7 @@
   <div class="section" id="features">
     <p class="section-eyebrow reveal">How it works</p>
     <h2 class="section-heading reveal delay-1">Built for real recovery.</h2>
-    <p class="section-body reveal delay-2">Not another productivity app. Uprise is designed around the neuroscience of habit change — because breaking an addiction takes more than a counter.</p>
+    <p class="section-body reveal delay-2">Not another productivity app. Uprise is designed around the neuroscience of habit change, because breaking an addiction takes more than a counter.</p>
 
     <div class="features-grid">
       <div class="feature-card reveal delay-1">
@@ -780,7 +781,7 @@
       <div class="feature-card reveal delay-2">
         <div class="feat-icon"><span class="ms-icon">emergency</span></div>
         <h3 class="feat-title">SOS When It Hits</h3>
-        <p class="feat-desc">Guided breathing and one-tap emergency contact — right when you need it, before the urge wins.</p>
+        <p class="feat-desc">Guided breathing and one-tap emergency contact, right when you need it, before the urge wins.</p>
       </div>
       <div class="feature-card reveal delay-3">
         <div class="feat-icon"><span class="ms-icon">insights</span></div>
@@ -796,23 +797,23 @@
   <div class="section" id="why">
     <p class="section-eyebrow reveal">Why it works</p>
     <h2 class="section-heading reveal delay-1">Your brain can change.<br>That's not a slogan.</h2>
-    <p class="section-body reveal delay-2">Pornography hijacks the same dopamine circuits as substance addiction. Recovery is measurable — but it takes weeks and months, not willpower alone. Uprise gives you the structure to let neuroplasticity do its job.</p>
+    <p class="section-body reveal delay-2">Pornography hijacks the same dopamine circuits as substance addiction. Recovery is measurable, but it takes weeks and months, not willpower alone. Uprise gives you the structure to let neuroplasticity do its job.</p>
 
     <div class="science-grid">
       <div class="science-card reveal delay-1" style="--sc-color: var(--ph-ignition); --sc-glow: var(--ph-ignition)">
         <span class="science-num">72h</span>
         <h4 class="science-label">The Hardest Window</h4>
-        <p class="science-body">The first three days see peak withdrawal intensity. Dopamine receptors are overstimulated and craving is loudest. This is why Uprise tracks hours — not just days — in the Ignition phase.</p>
+        <p class="science-body">The first three days see peak withdrawal intensity. Dopamine receptors are overstimulated and craving is loudest. This is why Uprise tracks hours, not just days, in the Ignition phase.</p>
       </div>
       <div class="science-card reveal delay-2" style="--sc-color: var(--ph-liberation); --sc-glow: var(--ph-liberation)">
         <span class="science-num">90d</span>
         <h4 class="science-label">The Clinical Milestone</h4>
-        <p class="science-body">90 days is the research-backed threshold where new neural pathways become dominant over old ones. Uprise builds your streak arc around this goal — every phase is a step toward it.</p>
+        <p class="science-body">90 days is the research-backed threshold where new neural pathways become dominant over old ones. Uprise builds your streak arc around this goal, and every phase is a step toward it.</p>
       </div>
       <div class="science-card reveal delay-3" style="--sc-color: var(--ph-adaptation); --sc-glow: var(--ph-adaptation)">
         <span class="science-num">70%</span>
         <h4 class="science-label">The Surge Protector</h4>
-        <p class="science-body">After 14 days, a relapse doesn't erase your progress. Your first slip preserves 70% of elapsed days, the second 40%. Because two weeks of rewiring is real — and worth keeping.</p>
+        <p class="science-body">After 14 days, a relapse doesn't erase your progress. Your first slip preserves 70% of elapsed days, the second 40%. Because two weeks of rewiring is real, and worth keeping.</p>
       </div>
     </div>
   </div>
@@ -829,22 +830,22 @@
       <div class="phase-card reveal delay-1" style="--ph-color: #FF7373">
         <span class="phase-range">Day 0 – 3</span>
         <h4 class="phase-name">Ignition</h4>
-        <p class="phase-desc">Cravings are loudest right now. Anxiety, restlessness, poor sleep — this is your brain demanding what it's used to. Every hour held is real progress.</p>
+        <p class="phase-desc">Cravings are loudest right now. Anxiety, restlessness, poor sleep. This is your brain demanding what it's used to. Every hour held is real progress.</p>
       </div>
       <div class="phase-card reveal delay-2" style="--ph-color: #FFA640">
         <span class="phase-range">Day 3 – 7</span>
         <h4 class="phase-name">Foundation</h4>
-        <p class="phase-desc">Gaps start appearing between urges. Sleep improves. The white-knuckle intensity of day one is easing — a little.</p>
+        <p class="phase-desc">Gaps start appearing between urges. Sleep improves. The white-knuckle intensity of day one is easing, just a little.</p>
       </div>
       <div class="phase-card reveal delay-3" style="--ph-color: #4DE0E0">
         <span class="phase-range">Day 7 – 14</span>
         <h4 class="phase-name">Momentum</h4>
-        <p class="phase-desc">One week in. Mood can swing — irritability and low energy are normal. Your brain is actively rerouting its reward circuits.</p>
+        <p class="phase-desc">One week in. Mood can swing. Irritability and low energy are normal. Your brain is actively rerouting its reward circuits.</p>
       </div>
       <div class="phase-card reveal delay-1" style="--ph-color: #73BFFF">
         <span class="phase-range">Day 14 – 30</span>
         <h4 class="phase-name">Adaptation</h4>
-        <p class="phase-desc">Many hit a "flatline" — emotional numbness, low motivation, low libido. It feels wrong. It isn't. It's your dopamine system recalibrating.</p>
+        <p class="phase-desc">Many hit a "flatline": emotional numbness, low motivation, low libido. It feels wrong. It isn't. It's your dopamine system recalibrating.</p>
       </div>
       <div class="phase-card reveal delay-2" style="--ph-color: #A699FF">
         <span class="phase-range">Day 30 – 60</span>
@@ -854,7 +855,7 @@
       <div class="phase-card reveal delay-3" style="--ph-color: #C785FF">
         <span class="phase-range">Day 60 – 90</span>
         <h4 class="phase-name">Rewiring</h4>
-        <p class="phase-desc">Triggers still exist — but they've lost their authority. Emotional depth returns. Many feel more present in conversations and relationships.</p>
+        <p class="phase-desc">Triggers still exist, but they've lost their authority. Emotional depth returns. Many feel more present in conversations and relationships.</p>
       </div>
       <div class="phase-card reveal delay-1" style="--ph-color: #FFE633">
         <span class="phase-range">Day 90 – 180</span>
@@ -864,12 +865,12 @@
       <div class="phase-card reveal delay-2" style="--ph-color: #C0C8D8">
         <span class="phase-range">Day 180 – 365</span>
         <h4 class="phase-name">Restoration</h4>
-        <p class="phase-desc">Ordinary pleasures return — food, music, and human connection feel vivid again. Dopamine sensitivity is healing at a deep level.</p>
+        <p class="phase-desc">Ordinary pleasures return. Food, music, and human connection feel vivid again. Dopamine sensitivity is healing at a deep level.</p>
       </div>
       <div class="phase-card reveal delay-3" style="--ph-color: #F0F0FF">
         <span class="phase-range">Day 365+</span>
         <h4 class="phase-name">Integration</h4>
-        <p class="phase-desc">One year. The compulsive loop is broken. A new identity — built day by day — has taken its place.</p>
+        <p class="phase-desc">One year. The compulsive loop is broken. A new identity, built day by day, has taken its place.</p>
       </div>
     </div>
   </div>
@@ -880,7 +881,7 @@
   <div class="section" id="privacy">
     <p class="section-eyebrow reveal">Privacy</p>
     <h2 class="section-heading reveal delay-1">Your data stays yours.</h2>
-    <p class="section-body reveal delay-2">This is the kind of app where privacy isn't optional. Everything lives on your device and syncs privately through your own iCloud account — we never see it.</p>
+    <p class="section-body reveal delay-2">This is the kind of app where privacy isn't optional. Everything lives on your device and syncs privately through your own iCloud account. We never see it.</p>
 
     <div class="privacy-grid">
       <div class="priv-card reveal delay-1">
@@ -891,7 +892,7 @@
       <div class="priv-card reveal delay-2">
         <span class="priv-icon ms-icon">cloud_sync</span>
         <h3 class="priv-title">Private iCloud Sync</h3>
-        <p class="priv-desc">Syncs through your personal iCloud. Only you can access it — not even we can.</p>
+        <p class="priv-desc">Syncs through your personal iCloud. Only you can access it. Not even we can.</p>
       </div>
       <div class="priv-card reveal delay-1">
         <span class="priv-icon ms-icon">block</span>
@@ -923,12 +924,12 @@
         <div class="faq-body">Make sure your device time is set automatically: <strong>Settings → General → Date &amp; Time → Set Automatically</strong>. A manually set clock can cause miscalculations.</div>
       </details>
       <details>
-        <summary>I got a new phone — can I recover my data?</summary>
+        <summary>I got a new phone. Can I recover my data?</summary>
         <div class="faq-body">Yes. If iCloud was enabled on your old device, your streak and journal sync automatically when you sign into the same Apple ID on your new phone. Give it a few minutes.</div>
       </details>
       <details>
         <summary>Does Uprise require a subscription?</summary>
-        <div class="faq-body">No. Core features — streak tracking, the SOS tool, and daily check-ins — are free forever. An optional premium tier is coming, but the heart of the app will never be paywalled.</div>
+        <div class="faq-body">No. Core features like streak tracking, the SOS tool, and daily check-ins are free forever. An optional premium tier is coming, but the heart of the app will never be paywalled.</div>
       </details>
       <details>
         <summary>Is my data private?</summary>
@@ -940,7 +941,7 @@
       </details>
       <details>
         <summary>What is the Surge Protector?</summary>
-        <div class="faq-body">After two weeks of progress, a relapse preserves a portion of your streak (70% on the first, 40% on the second) instead of resetting to zero. It's science-backed — after 14 days, your brain has begun forming new pathways worth protecting.</div>
+        <div class="faq-body">After two weeks of progress, a relapse preserves a portion of your streak (70% on the first, 40% on the second) instead of resetting to zero. It's science-backed. After 14 days, your brain has begun forming new pathways worth protecting.</div>
       </details>
     </div>
   </div>
