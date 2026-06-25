@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete Account & Data — Uprise</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta name="description" content="How to delete your Uprise account and all associated data." />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0A0A0F;
+      --card:   rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.07);
+      --coral:  #A699FF;
+      --muted:  rgba(255,255,255,0.45);
+      --radius: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.75;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 8px;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+    }
+    .nav-back {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--coral);
+      text-decoration: none;
+      opacity: 0.9;
+    }
+    .nav-back:hover { opacity: 1; }
+
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+
+    .page-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 14px;
+    }
+    .page-title {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .page-subtitle {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 56px;
+      line-height: 1.6;
+    }
+
+    .section {
+      margin-bottom: 48px;
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    p:last-child { margin-bottom: 0; }
+
+    ol {
+      list-style: none;
+      padding: 0;
+      counter-reset: steps;
+      margin-bottom: 14px;
+    }
+    ol li {
+      font-size: 15px;
+      color: var(--muted);
+      padding-left: 36px;
+      position: relative;
+      margin-bottom: 12px;
+      counter-increment: steps;
+    }
+    ol li::before {
+      content: counter(steps);
+      position: absolute;
+      left: 0;
+      top: 1px;
+      width: 22px;
+      height: 22px;
+      background: var(--coral);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 22px;
+    }
+
+    .highlight-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--coral);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 20px;
+    }
+    .highlight-card p {
+      margin-bottom: 0;
+    }
+
+    .email-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 28px;
+      background: var(--coral);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .email-button:hover { opacity: 0.85; }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 48px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: rgba(255,255,255,0.2);
+    }
+    footer a {
+      color: var(--coral);
+      text-decoration: none;
+      opacity: 0.8;
+    }
+    footer a:hover { opacity: 1; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">UPRISE</a>
+    <a class="nav-back" href="index.html">← Back</a>
+  </nav>
+
+  <div class="page">
+
+    <p class="page-eyebrow">Account &amp; Data</p>
+    <h1 class="page-title">Delete Your Account</h1>
+    <p class="page-subtitle">You have full control over your data. Here's how to delete your account and all associated information from Uprise.</p>
+
+    <div class="section">
+      <h2>Option 1 — Delete from inside the app</h2>
+      <p>The fastest way to erase all your data is directly from the app. This wipes your streak, check-in history, journal entries, and all locally stored information immediately.</p>
+      <ol>
+        <li>Open the Uprise app.</li>
+        <li>Tap the <strong>Profile</strong> tab (bottom right).</li>
+        <li>Scroll to the bottom and tap <strong>Delete Everything</strong>.</li>
+        <li>Confirm the deletion. All your data is erased instantly.</li>
+      </ol>
+      <div class="highlight-card">
+        <p>This action is permanent and cannot be undone. Your streak, check-ins, journal entries, and all personal data will be removed from your device and our servers.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <h2>Option 2 — Request deletion by email</h2>
+      <p>If you no longer have access to the app or prefer to request deletion directly, email us with your request. Include the email address associated with your Google account so we can locate and remove your data.</p>
+      <p>We will process your request and confirm deletion within <strong>7 days</strong>.</p>
+      <a class="email-button" href="mailto:hidalest@icloud.com?subject=Account%20Deletion%20Request&body=Please%20delete%20my%20Uprise%20account%20and%20all%20associated%20data.%0A%0AGoogle%20account%20email%3A%20">Request Deletion via Email</a>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <h2>What gets deleted</h2>
+      <p>When your account is deleted, the following data is permanently removed:</p>
+      <ol>
+        <li>Streak history and start date</li>
+        <li>All daily check-in entries and urge levels</li>
+        <li>Journal entries and relapse logs</li>
+        <li>SOS session notes and trigger entries</li>
+        <li>Profile information (name, avatar selection)</li>
+        <li>Your Uprise account record on our servers</li>
+      </ol>
+      <p>Note: deleting your Uprise account does not delete your Google account. To manage your Google account, visit <a href="https://myaccount.google.com" style="color: var(--coral);">myaccount.google.com</a>.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Uprise &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="index.html">Home</a></p>
+  </footer>
+
+</body>
+</html>
