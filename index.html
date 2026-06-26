@@ -764,8 +764,8 @@
     <p class="waitlist-note" id="waitlist-note">No spam. Just early access.</p>
 
     <div class="waitlist-success" id="waitlist-success">
-      <div class="success-pill">✓ Almost there — check your inbox</div>
-      <p class="success-sub">We just sent a confirmation link. Click it to lock in your spot.</p>
+      <div class="success-pill">✓ You're on the list</div>
+      <p class="success-sub">We'll reach out when early access opens.</p>
     </div>
 
     <!-- App Store -->
@@ -1118,12 +1118,13 @@
 <!-- ═══════════════ Waitlist ═══════════════ -->
 <script>
 /*
-  MailerLite embedded-form AJAX submit.
-  IMPORTANT: the /subscribe endpoint needs the form's NUMERIC id, NOT the short slug.
-  The short slug (e.g. "YAipQb") only works for *reading* the form — it 404s on /subscribe,
-  which silently dropped every signup. The numeric id is in the form's <form action> URL:
-    https://assets.mailerlite.com/jsonp/{ACCOUNT_ID}/forms/{NUMERIC_FORM_ID}/subscribe
-  (Find it via MailerLite → Forms → your form → Embed, or the form's action attribute.)
+  MailerLite waitlist submit — custom-styled form (keeps the hero design).
+  GOTCHAS (both already handled below):
+  1. The /subscribe endpoint needs the NUMERIC form id (191269911985653020),
+     NOT the short slug "YAipQb" — the slug 404s on /subscribe. Find the numeric
+     id in the form's <form action> (MailerLite → Forms → your form → Embed).
+  2. Turn OFF double opt-in in MailerLite, or signups sit in "Unconfirmed" and
+     never reach your active list (MailerLite → form → Settings → double opt-in).
 */
 const ML_ACCOUNT_ID = '2464265';
 const ML_FORM_ID    = '191269911985653020'; // numeric id — slug "YAipQb" 404s on /subscribe
@@ -1134,8 +1135,8 @@ const note    = document.getElementById('waitlist-note');
 const emailIn = document.getElementById('email-input');
 
 function showSuccess() {
-  form.style.display = 'none';
-  note.style.display = 'none';
+  form.style.display    = 'none';
+  note.style.display    = 'none';
   success.classList.add('show');
 }
 
@@ -1154,8 +1155,8 @@ form.addEventListener('submit', async (e) => {
   body.append('anticsrf', 'true');
 
   try {
-    // No 'no-cors': the endpoint returns Access-Control-Allow-Origin: *, so we can
-    // actually read the result and only show success when MailerLite confirms it.
+    // The endpoint returns Access-Control-Allow-Origin: *, so we can read the real
+    // result and only show success when MailerLite actually confirms it (no 'no-cors').
     const res  = await fetch(
       `https://assets.mailerlite.com/jsonp/${ML_ACCOUNT_ID}/forms/${ML_FORM_ID}/subscribe`,
       { method: 'POST', body }
